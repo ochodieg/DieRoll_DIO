@@ -33,7 +33,8 @@ Module DieRoll_DIO
 
             For i = 1 To 1000
 
-                dieRoll = CInt(GetdieRoll(1, 6))
+                dieRoll = CInt(GetdieRoll(1, 6)
+                    )
                 outPut(dieRoll - 2) += 1
 
 
@@ -48,11 +49,13 @@ Module DieRoll_DIO
 
             Next
 
-            Console.WriteLine()
+            Console.WriteLine(
+                )
 
             Console.Write(StrDup(250, "*"))
 
-            Console.WriteLine()
+            Console.WriteLine(
+                )
 
 
             For i = 0 To 10
@@ -63,13 +66,16 @@ Module DieRoll_DIO
 
             Next
 
-            Console.ReadLine()
+            Console.ReadLine(
+                )
 
             Erase outPut
 
-            ReDim outPut(12)
+            ReDim outPut(12
+                         )
 
-            Console.Clear()
+            Console.Clear(
+                )
         Loop
 
     End Sub
@@ -78,11 +84,13 @@ Module DieRoll_DIO
     Function GetdieRoll(ByVal minimum As Single,
         ByVal maximum As Single) As Single
 
+        Dim dieSquad As Single
+
         Dim rolleyBoye1 As Single
 
         Dim rolleyBoye2 As Single
 
-        Dim dieSquad As Single
+
 
         Do
             rolleyBoye1 = (maximum * Rnd(
