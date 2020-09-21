@@ -12,9 +12,10 @@ Module DieRoll_DIO
 
         Dim disPlay As String
 
+        Dim outPut(12) As Integer
         Dim dieRoll As Integer
 
-        Dim outPut(12) As Integer
+
 
         Console.SetWindowSize(125, 10
                               )
@@ -22,11 +23,13 @@ Module DieRoll_DIO
         'adjusted to fit seperation markers "*" and "/". Contribution by Luis Torres.
 
 
-        Randomize()
+        Randomize(
+            )
 
         Do
 
-            Console.WriteLine("Press enter for a random number or type capital Q to quit")
+            Console.WriteLine("Press enter for a random number or type capital Q to quit"
+                              )
 
             If Console.ReadLine = "Q" Then Exit Sub
 
@@ -35,7 +38,8 @@ Module DieRoll_DIO
 
                 dieRoll = CInt(GetdieRoll(1, 6)
                     )
-                outPut(dieRoll - 2) += 1
+                outPut(dieRoll - 2
+                       ) += 1
 
 
             Next
@@ -52,7 +56,8 @@ Module DieRoll_DIO
             Console.WriteLine(
                 )
 
-            Console.Write(StrDup(250, "*"))
+            Console.Write(StrDup(250, "*")
+                          )
 
             Console.WriteLine(
                 )
@@ -60,7 +65,8 @@ Module DieRoll_DIO
 
             For i = 0 To 10
 
-                disPlay = String.Format("{0, 10}", outPut(i)) & "/"
+                disPlay = String.Format("{0, 10}", outPut(i)
+                                        ) & "/"
                 Console.Write(disPlay)
 
 
