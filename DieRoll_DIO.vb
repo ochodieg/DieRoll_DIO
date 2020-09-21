@@ -1,4 +1,8 @@
-﻿
+﻿'D. Ivan Ochoa
+'RCET0265
+'Fall 2020
+'roll dice
+'https://github.com/ochodieg/DieRoll_DIO
 
 Option Strict Off
 
