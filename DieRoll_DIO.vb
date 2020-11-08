@@ -7,7 +7,7 @@ Option Strict On ' wont compile - TJR
 Option Explicit On
 Module DieRoll_DIO ' PascalCase
     Sub Main()
-        Dim disPlay As String
+        Dim disPlay As String ' camelcase ' display is one word - TJR
         Dim outPut(12) As Integer
         Dim dieRoll As Integer
         Console.SetWindowSize(125, 10)
