@@ -1,128 +1,55 @@
 ﻿'D. Ivan Ochoa
 'RCET0265
 'Fall 2020
-'roll dice
+'Roll of the dice
 'https://github.com/ochodieg/DieRoll_DIO
-
 Option Strict Off
-
 Option Explicit On
-
-
 Module DieRoll_DIO
-
     Sub Main()
-
-
-        Dim disPlay As String
-
-        Dim outPut(12) As Integer
         Dim dieRoll As Integer
-
-
-
-        Console.SetWindowSize(125, 10
-                              )
-        'command allows me to set the resolution of the console display. It had to be 
-        'adjusted to fit seperation markers "*" and "/". Contribution by Luis Torres.
-
-
-        Randomize(
-            )
-
+        Dim row As Integer
+        Dim outPut(12) As Integer
+        'Dim disPlay As String
+        Console.SetWindowSize(125, 10)
+        Console.WriteLine("Press enter to roll a pair of dice or press Q to quit")
+        If Console.ReadKey().Key = ConsoleKey.Q Then
+            Exit Sub
+        End If
         Do
-
-            Console.WriteLine("Press enter for a random number or type capital Q to quit"
-                              )
-
-            If Console.ReadLine = "Q" Then Exit Sub
-
-
+            Console.WriteLine("-2-------3--------4-------5-------6-------7-------8-------9-------1------11------12")
             For i = 1 To 1000
-
-                dieRoll = CInt(GetdieRoll(1, 6)
-                    )
-                outPut(dieRoll - 2
-                       ) += 1
-
-
+                dieRoll = GetRandomNumber(1, 11)
+                outPut(dieRoll) += 1
             Next
-
-
+            'For i = 2 To 12
+            'disPlay = String.Format("{0, 10}", i) & "/"
+            'Console.Write(disPlay)
+            'Next
+            'Console.WriteLine()
+            'Console.Write(StrDup(250, "*"))
+            'Console.WriteLine()
+            'For i = 0 To 10
+            '    disPlay = String.Format("{0, 10}", outPut(i)) & "/"
+            '    Console.Write(disPlay)
             For i = 2 To 12
-
-                disPlay = String.Format("{0, 10}", i) & "/"
-                Console.Write(disPlay)
-
-
+                'Console.Write(StrDup(250, "*"))
+                Console.Write("|" & outPut(i) & "|" & vbTab)
             Next
-
-            Console.WriteLine(
-                )
-
-            Console.Write(StrDup(250, "*")
-                          )
-
-            Console.WriteLine(
-                )
-
-
-            For i = 0 To 10
-
-                disPlay = String.Format("{0, 10}", outPut(i)
-                                        ) & "/"
-                Console.Write(disPlay)
-
-
-            Next
-
-            Console.ReadLine(
-                )
-
+            Console.WriteLine(vbNewLine)
+            Console.WriteLine("Press enter to roll the dice again or press Q to quit")
+            If Console.ReadKey().Key = ConsoleKey.Q Then
+                Exit Sub
+            End If
             Erase outPut
-
-            ReDim outPut(12
-                         )
-
-            Console.Clear(
-                )
+            ReDim outPut(12)
         Loop
-
     End Sub
-
-
-    Function GetdieRoll(ByVal minimum As Single,
-        ByVal maximum As Single) As Single
-
-        Dim dieSquad As Single
-
-        Dim rolleyBoye1 As Single
-
-        Dim rolleyBoye2 As Single
-
-
-
-        Do
-            rolleyBoye1 = (maximum * Rnd(
-                ) + 0.3)
-
-            rolleyBoye2 = (maximum * Rnd(
-                ) + 0.7)
-
-        Loop While rolleyBoye1 <
-            minimum - 0.5 Or rolleyBoye1 >= maximum + 0.5 Or rolleyBoye2 <
-            minimum - 0.5 Or rolleyBoye2 >= maximum + 0.5
-
-        dieSquad = (CInt(rolleyBoye1
-            ) + CInt(rolleyBoye2)
-            )
-
-        Return CInt(dieSquad
-            )
-
-        'this function completes the randomize feature. Contribution by Tim Rossiter
-
+    Function GetRandomNumber(ByVal min As Integer, ByVal max As Integer) As Integer
+        Dim number As Single
+        Randomize()
+        number = CInt(Int(12 * Rnd()) + 1)
+        number = ((max - min + 1) * Rnd()) + min
+        Return CInt((number))
     End Function
-
-
 End Module
